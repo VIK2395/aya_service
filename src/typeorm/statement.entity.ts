@@ -6,7 +6,7 @@ export class Statement {
   @PrimaryColumn({ type: 'bigint' })
   id: number;
 
-  @Column({ type: 'decimal', scale: 2 })
+  @Column({ type: 'decimal', precision: 38, scale: 2 })
   amount: number;
 
   @Column({ type: 'date' })

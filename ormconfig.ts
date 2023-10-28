@@ -14,8 +14,8 @@ export const dataSource = new DataSource({
   username: 'root',
   password: 'mysql-root-superuser-password',
   database: 'nest-app-db',
-  entities: ['src/**/*.entity.ts'],
-  migrations: ['src/migrations/*.ts'],
+  entities: ['./src/**/*.entity.{ts,js}'],
+  migrations: ['./src/migrations/*.ts'],
   synchronize: false,
 });
 

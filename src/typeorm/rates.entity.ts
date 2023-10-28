@@ -9,6 +9,6 @@ export class Rate {
   @PrimaryColumn({ type: 'char', length: 3 })
   sign: string;
 
-  @Column({ type: 'decimal', scale: 16 })
+  @Column({ type: 'decimal', precision: 38, scale: 16 })
   value: number;
 }
