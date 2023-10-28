@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  nest-app:
+    build: .
+    image: nest-app:1.0
+    container_name: nest-app
+    networks:
+      - nest-network
+    ports:
+      - 3000:3000
+      - 9229:9229
+    volumes:
+      - .:/home/nest-app
+    depends_on:
+      nest-app-mysqldb:
+        condition: service_healthy
+    command: npm run start:dockerdebug
+
+  nest-app-mysqldb:
+    image: mysql:8.0
+    container_name: nest-app-mysqldb
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=nest-app-db
+      - MYSQL_ROOT_PASSWORD=mysql-root-superuser-password
+    volumes:
+      - mysql-nest-app-data:/var/lib/mysql
+    networks:
+      - nest-network
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "nest-app-mysqldb"]
+      interval: 2s
+      timeout: 20s
+      retries: 10
+
+volumes:
+  mysql-nest-app-data:
+    name: mysql-nest-app-data
+
+networks:
+  nest-network:
+    name: nest-network

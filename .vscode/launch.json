@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // https://blog.itaywol.com/dockerizing-nestjs-application-and-debugging
+            // https://github.com/microsoft/vscode/issues/100973
+            "type": "node",
+            "request": "attach",
+            "name": "Debug NestJS in Docker",
+            "remoteRoot": "/home/nest-app",
+            "restart": true
+            //"protocol": "inspector",
+            //"address": "localhost",
+            //"port": 9229,
+            //"sourceMaps": true,
+            //"localRoot": "${workspaceFolder}"
+        }
+
+    ]
+}
