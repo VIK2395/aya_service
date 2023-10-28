@@ -31,7 +31,7 @@ services:
     networks:
       - nest-network
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "nest-app-mysqldb"]
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'nest-app-mysqldb']
       interval: 2s
       timeout: 20s
       retries: 10
