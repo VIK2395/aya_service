@@ -7,6 +7,8 @@ import { DataSource } from 'typeorm';
 // https://stackoverflow.com/questions/59435293/typeorm-entity-in-nestjs-cannot-use-import-statement-outside-a-module
 // https://dev.to/amirfakour/using-typeorm-migration-in-nestjs-with-postgres-database-3c75
 
+// Orm config props
+// https://typeorm.biunav.com/en/connection-options.html#what-is-connectionoptions
 export const dataSource = new DataSource({
   type: 'mysql',
   host: 'nest-app-mysqldb',
@@ -14,7 +16,10 @@ export const dataSource = new DataSource({
   username: 'root',
   password: 'mysql-root-superuser-password',
   database: 'nest-app-db',
-  entities: [__dirname + '/**/*.entity.{ts,js}'],
-  migrations: [__dirname + '/migrations/*.ts'],
+  entities: [__dirname + '/src/**/*.entity.{ts,js}'],
+  migrations: [__dirname + '/src/migrations/*.{ts,js}'],
+  migrationsRun: true,
   synchronize: false,
 });
+
+// __dirname => /home/nest-app/dist
