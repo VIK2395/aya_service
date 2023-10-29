@@ -1,11 +1,11 @@
 import { MigrationInterface, QueryRunner } from "typeorm";
 
-export class InitMigration1698497245318 implements MigrationInterface {
-    name = 'InitMigration1698497245318'
+export class InitMigration1698607003120 implements MigrationInterface {
+    name = 'InitMigration1698607003120'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TABLE \`statements\` (\`id\` bigint NOT NULL, \`amount\` decimal(38,2) NOT NULL, \`date\` date NOT NULL, \`emploeeId\` bigint NOT NULL, PRIMARY KEY (\`id\`)) ENGINE=InnoDB`);
-        await queryRunner.query(`CREATE TABLE \`donations\` (\`id\` bigint NOT NULL, \`amount\` decimal(37,2) NOT NULL, \`date\` date NOT NULL, \`emploeeId\` bigint NOT NULL, PRIMARY KEY (\`id\`)) ENGINE=InnoDB`);
+        await queryRunner.query(`CREATE TABLE \`donations\` (\`id\` bigint NOT NULL, \`amount\` decimal(38,2) NOT NULL, \`date\` date NOT NULL, \`emploeeId\` bigint NOT NULL, PRIMARY KEY (\`id\`)) ENGINE=InnoDB`);
         await queryRunner.query(`CREATE TABLE \`emploees\` (\`id\` bigint NOT NULL, \`name\` varchar(255) NOT NULL, \`surename\` varchar(255) NOT NULL, \`departmentId\` bigint NOT NULL, PRIMARY KEY (\`id\`)) ENGINE=InnoDB`);
         await queryRunner.query(`CREATE TABLE \`departments\` (\`id\` bigint NOT NULL, \`name\` varchar(255) NOT NULL, PRIMARY KEY (\`id\`)) ENGINE=InnoDB`);
         await queryRunner.query(`CREATE TABLE \`rates\` (\`date\` date NOT NULL, \`sign\` char(3) NOT NULL, \`value\` decimal(38,16) NOT NULL, PRIMARY KEY (\`date\`, \`sign\`)) ENGINE=InnoDB`);
