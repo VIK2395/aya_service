@@ -4,6 +4,8 @@
         {
             // https://blog.itaywol.com/dockerizing-nestjs-application-and-debugging
             // https://github.com/microsoft/vscode/issues/100973
+            // debug multiple apps
+            // https://www.youtube.com/watch?v=1WUoITRINf0
             "type": "node",
             "request": "attach",
             "name": "Debug NestJS in Docker",
